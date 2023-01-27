@@ -1,3 +1,26 @@
+:root {
+    /*========== Colors ==========*/
+    --body-color: #fff;
+    --Firt-color-header: #3E2719;
+    --secondary-color: #745946;
+    --tertiary-color-light: #BFA77E;
+    --gray-color: #D6CDC9;
+    --letter-color: #878a8f;
+
+    /*========== Font and typography ==========*/
+    --biggest-font-size: 2.25rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+}
+
+/*
+    -- Reset
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +30,23 @@
 html {
     scroll-behavior: smooth;
 }
+
+body {
+    background-color: var(--body-color);
+    font-family: 'Toko', sans-serif;
+    font-size: var(--normal-font-size);
+    font-weight: 400;
+    color: black;
+}
+
+ul { list-style: none; }
+
+a { text-decoration: none; }
+
+img {
+    max-width: 100%;
+    height: auto;
+  }
 
 
 /*
@@ -57,4 +97,40 @@ html {
         transform: scaleY(1);
         opacity: 0;
     }
+}
+
+/*
+    -- Header And Navigation
+*/
+
+.header {
+    width: 100%;
+    height: 70px;
+}
+
+.nav-container {
+    background-color: #3E2719;
+    display: fixed;
+    padding: 0 35px 0 35px;
+}
+
+.menu-fixed {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.text-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 10px;
+
 }
