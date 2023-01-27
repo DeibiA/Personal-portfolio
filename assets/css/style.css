@@ -109,6 +109,7 @@ img {
 }
 
 .nav-container {
+    width: 100%;
     background-color: #3E2719;
     display: fixed;
     padding: 0 35px 0 35px;
@@ -130,7 +131,67 @@ img {
 .text-logo {
     display: flex;
     flex-direction: column;
-    gap: 5px;
     margin-left: 10px;
+}
 
+.menu {
+    position: relative;
+    width: 100px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.menu-text {
+    position: absolute;
+
+}
+/*
+    -- Menu Burger
+*/
+
+.menu .menu-burger {
+    position: absolute;
+    right: 0px;
+    width: 40px;
+    height: 3px;
+    background-color: currentColor;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+.menu .menu-burger::after,
+.menu .menu-burger::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    border-radius: 5px;
+    background-color: currentColor;
+    transition: all .5s ease-in-out;
+}
+
+.menu .menu-burger::before {
+    transform: translateY(10px);
+}
+
+.menu .menu-burger::after {
+    transform: translateY(-14px);
+}
+
+/*
+    -- Menu Burger Animation
+*/
+
+.menu.open .menu-burger {
+    transform: translateX(-50px);
+    background-color: transparent;
+}
+
+.menu.open  .menu-burger::after {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu.open .menu-burger::before {
+    transform: rotate(-45deg) translate(35px, 35px);
 }

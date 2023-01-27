@@ -6,3 +6,10 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     console.log(preloader)
 });
+
+
+const menuBurger = document.querySelector('.menu');
+
+menuBurger.addEventListener('click', () => {
+    menuBurger.classList.toggle('open')
+});
