@@ -1,5 +1,5 @@
 /* 
-    ***toggle for Preload***
+    --- ***toggle for Preload*** ---
 */
 const preload = document.querySelector('[data-preload]');
 
@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 /* 
-    *** Toggle for Menu Burger ***
+    *** --- Toggle for Menu Burger *** ---
 */
 const menuBurger = document.querySelector('.menu');
 const sectHeader = document.querySelector('.sectHeader');
@@ -38,7 +38,7 @@ function letters(text) {
 letters(letter); 
 
 /* 
-    ***toggle for Scroll***
+    --- ***toggle for Scroll*** ---
 */
 
 const header = document.querySelector('header');
