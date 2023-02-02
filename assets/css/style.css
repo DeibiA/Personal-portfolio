@@ -44,8 +44,56 @@ a {
     color: var(--grey-color);
 }
 
+body.loaded { overflow-y: auto; }
 
 
+/* 
+   --- *** *** Preloader *** *** ---
+*/
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    box-shadow: inset 55vw 0 0 0 #fff,
+                inset -55vw 0 0 0 #fff;
+    display: grid;
+    place-items: center;
+    z-index: 1000;
+  }
+  
+  .preloader.loaded {
+    transition: 300ms ease 500ms;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 0 #fff,
+                inset 0 0 0 0 #fff;
+  }
+  
+  .preloader .line {
+    width: 1px;
+    height: 100%;
+    background-color: black;
+    transition:  .5s ease;
+    animation: loading 1000ms linear forwards;
+  }
+  
+  @keyframes loading {
+    0% { transform: scaleY(0); }
+    100% { transform: scaleY(0.3); }
+  }
+  
+  .preloader.loaded .line { animation: loaded 500ms ease forwards; }
+  
+  @keyframes loaded {
+    0% { transform: scaleY(0.3); }
+  
+    100% {
+      transform: scaleY(1);
+      opacity: 0;
+    }
+  }
 
 /* 
 --- *** *** Inicio | HEADER *** *** ---
@@ -178,7 +226,7 @@ a {
 
 
 .sectHeader.open .navigation {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     background-color: #0F141E;
@@ -193,33 +241,74 @@ a {
     font-weight: 500;
     font-family: 'Kalam', sans-serif;
     padding: 8px;
+    animation: load 1400ms ease ;
+
 }
 
-
-
-
+  
+  @keyframes load {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% { transform: translateX(0); }
+}
+  
 /* 
-    --- *** *** Inicio | criação do menu-hamburger *** *** ---
+    *** Inicio | MAIN *** 
 */
 
-.container-img { 
-    position: absolute;
+.main {
+    background-color: var(--Firt-color-header);
+    height: 100vh;
+}
+
+/* 
+    --- *** *** Inicio | IMG *** *** ---
+*/
+
+.home-container {
+    position: relative;
     width: 100%;
     height: 100vh;
-    top: 0;
     overflow: hidden;
 }
+
 
 .container-img img {
     position: absolute;
     top: 120px;
-    right: 50px;
+    right: 20px;
 
 
     /* Float */
     animation: float 5s ease-in-out infinite alternate;
     transition: .4s;
 }
+
+/* 
+    *** Inicio | Animação flutuando da img ***
+*/
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    
+    }
+    50% {
+        transform: translateY(-30px);
+        filter: drop-shadow( 0 1.5rem 1rem rgba(0, 0, 0, .5));
+        
+    }
+    100% {
+        transform: translateY(0px);
+        
+    }
+}
+
+/* 
+    *** Fim | Animação flutuando da img ***
+*/
 
 .container-description {
     position: absolute;
@@ -269,19 +358,6 @@ a {
     padding: 20px 0px;
 }
 
-.sectHeader #email {
-    font-size: 40px;
-}
-
-
-/* 
-    *** Inicio | MAIN *** 
-*/
-
-.main {
-    background-color: var(--Firt-color-header);
-    height: 100vh;
-}
 
 .two {
     background: #745946;
@@ -323,70 +399,17 @@ p span {
     text-transform: uppercase;
 }
 
- .main.scroll-header img{
-    animation: float 5s ease-in-out infinite alternate;
-}
-
-/* @keyframes floa {
-    0% {
-
-        opacity: 1;
-    }
-    50% {
-
-        opacity: 0;
-    }
-    100% {
-        
-    }
-} */
-
-/* 
-    *** Inicio | Animação efeito maquina de escrever *** 
-*/
-
-/* 
-    *** Fim |  Animação efeito maquina de escrever *** 
-*/
 
 
 /* 
-    *** Inicio | Animação flutuando da img ***
+    *** Inicio | Portfolio Responsivo ***
 */
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    
-    }
-    50% {
-        transform: translateY(-30px);
-        filter: drop-shadow( 0 1.5rem 1rem rgba(0, 0, 0, .5));
-        
-    }
-    100% {
-        transform: translateY(0px);
-        
-    }
-}
-
-/* 
-    *** Fim | Animação flutuando da img ***
-*/
-
-
-
-
-
-/* Responsive */
 
 @media (max-width: 1200px) {
     
-    /* span.menu-burger.active .logo {
-        display: none;
-    } */
 
     .container-description span.typing {
+        font-size: 25px;
         font-weight: 500;
     } 
     
@@ -395,12 +418,12 @@ p span {
     }
 
     .container-description h1 {
-        font-size: 55px;
+        font-size: 25px;
         font-weight: 700;
     }
 
     .container-description h3 {
-        font-size: 25px;
+        font-size: 18px;
     }
     
     .container-description h5 {
@@ -410,7 +433,6 @@ p span {
     
     img {
         height: 50%;
-        /* width: 300px; */
     }
 
     .header .line {

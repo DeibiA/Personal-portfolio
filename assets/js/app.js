@@ -46,10 +46,8 @@ window.addEventListener('scroll', () => {
     if(this.scrollY >= 50) {
         //When the scroll is geater than 50 viewport height, add the scroll-header class to the heasder tag
         header.classList.add('scroll-header');
-        document.querySelector('.main').classList.add('scroll-header')
     }
     else {
         header.classList.remove('scroll-header')
-        document.querySelector('.main').classList.add('scroll-header').remove()
     }
 });
