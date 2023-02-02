@@ -4,7 +4,7 @@
     --Firt-color-header: #3E2719;
     --secondary-color: #745946;
     --tertiary-color-light: #BFA77E;
-    --gray-color: #D6CDC9;
+    --grey-color: #D6CDC9;
     --letter-color: #878a8f;
 
     /*========== Font and typography ==========*/
@@ -26,35 +26,50 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
-    color: var(--gray);
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul{ list-style: none; }
+
+a {
+    text-decoration: none;
+    color: var(--grey-color);
+}
+
+
+
 
 /* 
 --- *** *** Inicio | HEADER *** *** ---
 */
 
-ul{ list-style: none; }
-
-a { text-decoration: none; }
-
 .header {
-    max-width: 100%;
-    height: 90px;
-    display: flex;
-}
-
-
-.header .sectHeader  {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 90px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.header .sectHeader  {
+
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 35px;
-    background-color: var(--Firt-color-header);
-    z-index: 10;
+    background-color: transparent;
 }
 
 .sectHeader .logo {
@@ -95,12 +110,19 @@ a { text-decoration: none; }
     height: 40px;
 }
 
+.menu-text {
+    font-size: 16px;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 600;
+    color: var(--grey-color);
+}
+
 /* 
     --- *** *** Inicio | criação do menu-hamburger *** *** ---
 */
 
 .menu .menu-burger {
-    background-color: black;
+    background-color: currentColor;
     display: block;
     width: 45px;
     height: 4px;
@@ -124,7 +146,7 @@ a { text-decoration: none; }
 }
 
 .menu .menu-burger::before {
-    transform: translateY(14px);
+    transform: translateY(12px);
 }
 
 /* 
@@ -151,41 +173,49 @@ a { text-decoration: none; }
 
 .navigation {
     display: none;
+    /* z-index: 10; */
 }
+
 
 .sectHeader.open .navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #0F141E;
     width: 100%;
     height: 100vh;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: #878a8f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #878a8f;    font-size: 52px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    font-family: 'Kalam', sans-serif;
+    padding: 8px;
 }
 
-ul li {
 
-    width: 100;
-}
 
-ul li a {
-    border: solid;
-    font-size: 58px;
-    font-weight: 900;
-    padding:10px 0;
-    margin:0 50px;
-}
 
 /* 
     --- *** *** Inicio | criação do menu-hamburger *** *** ---
 */
 
+.container-img { 
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    overflow: hidden;
+}
+
 .container-img img {
     position: absolute;
-    right: 5%;
-    border-radius: 50%;
+    top: 120px;
+    right: 50px;
+
+
     /* Float */
     animation: float 5s ease-in-out infinite alternate;
     transition: .4s;
@@ -204,7 +234,7 @@ ul li a {
     font-weight: 500;
     font-size:  40px;
     letter-spacing: 4px;
-    color: var(--letterColor);
+    color: var(--letter-color);
     padding-bottom: 3%;
 }
 
@@ -213,6 +243,7 @@ ul li a {
     font-size: 50px;
     letter-spacing: 2px;
     font-weight: 600;
+    color: var(--grey-color);
 }
 
 .typing {
@@ -222,7 +253,7 @@ ul li a {
 }
 
 .container-description span.typing {
-    color: #878a8f;
+    color: var(--letter-color);
     font-family: 'Toko', sans-serif;
     font-weight: 500;
     letter-spacing: 1px;
@@ -242,20 +273,6 @@ ul li a {
     font-size: 40px;
 }
 
-.line {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 78%;
-}
-.line::after {
-    content: "";
-    display: block;
-    width: 15%;
-    height: 3px;
-    background: #ffffff;
-
-}
 
 /* 
     *** Inicio | MAIN *** 
@@ -263,7 +280,6 @@ ul li a {
 
 .main {
     background-color: var(--Firt-color-header);
-    width: 100%;
     height: 100vh;
 }
 
@@ -279,8 +295,9 @@ ul li a {
 }
 
 .four {
-    position: relative;
+    position: absolute;
     background-color: #ffffff;
+    width: 100%;
     height: 100vh;
 }
 
@@ -301,16 +318,16 @@ p span {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 2px;
-    color: #00000093;
+    color: var(--letter-color);
     padding-bottom: 5px;
     text-transform: uppercase;
 }
 
  .main.scroll-header img{
-    animation: floa 5s ease-in-out infinite alternate;
+    animation: float 5s ease-in-out infinite alternate;
 }
 
-@keyframes floa {
+/* @keyframes floa {
     0% {
 
         opacity: 1;
@@ -322,7 +339,7 @@ p span {
     100% {
         
     }
-}
+} */
 
 /* 
     *** Inicio | Animação efeito maquina de escrever *** 
