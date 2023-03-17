@@ -51,3 +51,20 @@ window.addEventListener('scroll', () => {
         header.classList.remove('scroll-header')
     }
 });
+
+/* 
+    --- *** Scroll Reveal Animation *** ---
+*/
+
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '200px',
+    duration: '2500',
+    delay: '400',
+    //reset: true
+})
+
+sr.reveal('.container-description', {delay: 800});
+sr.reveal('.html-css', {interval: 100, origin: 'left', distance: '150px'});
+sr.reveal('.js-node', {interval: 200, origin: 'right'});
+sr.reveal('.work', {interval: 300, origin: 'left', distance: '800px', delay: '900'});

@@ -423,7 +423,6 @@ body.loaded { overflow-y: auto; }
 .container:hover #html{
     clip-path: circle(100%);
     background: linear-gradient(to right, #ff6f00d7, #e65100bd);
-    
 }
 
 .container:hover #css{
@@ -440,12 +439,11 @@ body.loaded { overflow-y: auto; }
 
 .container:hover #node{
     clip-path: circle(100%);
-    background: linear-gradient(to right, #21a366a8, #21a366cc);
+    background: linear-gradient(to right, #21a366a8, #21a3667e);
     
 }
 
 .footer h2 {
-    margin-top: 100px;
     text-align: center;
     color: #1D2538;
     font-family: "Raleway" Arial, Helvetica, sans-serif;
@@ -473,7 +471,7 @@ body.loaded { overflow-y: auto; }
     color: var(--body-color);
     padding-bottom: 5px;
     text-transform: uppercase;
-    margin-left: 10px;
+
 }
 
 
